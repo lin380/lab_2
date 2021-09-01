@@ -13,12 +13,12 @@ You can preview a formatted version of this README.md document by clicking the '
 
 ## Objectives
 
-Research: 
+**Research:** 
 
   - Identify the aim(s) and main finding(s) from a primary research article.
   - Interpret a plot.
 
-R Markdown: 
+**R Markdown:** 
 
   - Create numbered section headers and a table of contents in R Markdown documents.
   - Add in-line citations and corresponding references to R Markdown documents.
@@ -88,14 +88,14 @@ left_join(speaker_num_utterances, speaker_fillers) %>% # join speaker_fillers an
 
 ### Document formatting
 
-Numbered sections and table of contents:
+**Numbered sections and table of contents:** 
 
 1. Either with the RStudio toolbar or manually, edit the front matter so that that document output will:
   - include numbered sections
   - include a table of contents
 2. Knit the R Markdown document to verify there are numbered sections and a table of contents
 
-In-line citation and reference section:
+**In-line citation and reference section:**
 
 1. Identify the DOI for the Tottie (2011) article. 
   - Either by visiting [the article on the publishers website](https://www.jbe-platform.com/content/journals/10.1075/ijcl.16.2.02tot) or by inspecting the article PDF.
@@ -104,7 +104,7 @@ In-line citation and reference section:
 4. Add a section header "References" at the very end of the R Markdown document.
 5. Knit the R Markdown document to verify the in-line citation and reference appear in the document output.
 
-Cross-reference a figure:
+**Cross-reference a figure:**
 
 1. In the front matter change the `output:` value `html_document:` to `bookdown::pdf_document2:`.
 2. Prepend `As seen in Figure \@ref(fig:swda-fillers), ` to your description of the plot.
