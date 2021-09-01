@@ -1,0 +1,60 @@
+---
+title: 'Lab #2'
+author: "Jerid Francom"
+date: "9/1/2021"
+output: 
+  bookdown::pdf_document2: 
+    toc: yes
+    number_sections: yes
+bibliography: references.bib
+---
+
+# Article summary
+
+@Tottie2011 aims to explore the potential sociolinguistic value of fillers such as 'uh' and 'um'. In particular, the author seeks to see if it is possible that the use of these fillers can differentiate between speakers along gender, age, and socio-economic class lines. The findings suggest that men use more fillers than women, and that age and socio-economic class also influence the use of fillers and filler types. 
+
+# Comparison with American English
+
+In Figure \@ref(fig:swda-fillers) we see that the filler 'uh' is more common than 'um' overall. The plot also suggests that men use more fillers generally, compared to women.
+
+```{r swda-fillers, echo=FALSE, message=FALSE, fig.cap='Use of fillers in spoken American English'}
+# Load the package used for data manipulation and plotting
+library(tidyverse)
+# Load the package which has the Switchboard Dialogue Act Corpus dataset
+library(tadr) 
+
+# Extract count of fillers 'uh' and 'um' for each utterance
+speaker_fillers <- 
+  swda %>% # dataset
+  mutate(uh = str_count(utterance_text, "\\{F [Uu]h")) %>% # count 'uh' per utterance
+  mutate(um = str_count(utterance_text, "\\{F [Uu]m")) %>% # count 'um' per utterance
+  select(speaker_id, sex, uh, um) %>% # subset
+  pivot_longer(cols = c("uh", "um"), names_to = "fillers", values_to = "filler_count") %>% # wide to long format
+  group_by(speaker_id, sex, fillers) %>% # group by speaker_id, sex, and fillers
+  summarise(filler_count = sum(filler_count)) # count number of fillers
+
+# Calculate the number of utterances per speaker
+speaker_num_utterances <- 
+  swda %>% # dataset
+  group_by(speaker_id) %>% # group by speaker_id
+  summarise(num_utterances = n()) # count number of utterances by
+
+# Join speaker_fillers and speaker_num_utterances data frames
+left_join(speaker_num_utterances, speaker_fillers) %>% # join speaker_fillers and speaker_num_utterances
+  mutate(filler_count_per_utt = (filler_count / num_utterances) * 100) %>% # calculate fillers per 100 utterances
+  ggplot(aes(x = sex, y = filler_count_per_utt, color = fillers)) + # plot variables to use
+  geom_boxplot() + # produce a boxplot
+  labs(title = "Switchboard Corpus of American English", 
+       subtitle = "Use of fillers 'uh' and 'um'", 
+       x = "Sex of speaker", 
+       y = "Number of utterances (per 100)",
+       color = "Filler type")
+```
+
+The plot for American English and the findings from @Tottie2011 on the general use of fillers are similar. It is also seen that 'uh' is used more than 'um' in both findings. The plot for American English, however, does not provide information on age and socio-economic class so no comparisons can be drawn. 
+
+# Assessment
+
+... a self-assessment of your learning progress ...
+
+# References
