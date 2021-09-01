@@ -11,7 +11,7 @@ bibliography: references.bib
 
 # Article summary
 
-@Tottie2011 aims to explore the potential sociolinguistic value of fillers such as 'uh' and 'um'. In particular, the author seeks to see if it is possible that the use of these fillers can differentiate between speakers along gender, age, and socio-economic class lines. The findings suggest that men use more fillers than women, and that age and socio-economic class also influence the use of fillers and filler types. 
+@tottie2011 aims to explore the potential sociolinguistic value of fillers such as 'uh' and 'um'. In particular, the author seeks to see if it is possible that the use of these fillers can differentiate between speakers along gender, age, and socio-economic class lines. The findings suggest that men use more fillers than women, and that age and socio-economic class also influence the use of fillers and filler types. 
 
 # Comparison with American English
 
@@ -51,7 +51,7 @@ left_join(speaker_num_utterances, speaker_fillers) %>% # join speaker_fillers an
        color = "Filler type")
 ```
 
-The plot for American English and the findings from @Tottie2011 on the general use of fillers are similar. It is also seen that 'uh' is used more than 'um' in both findings. The plot for American English, however, does not provide information on age and socio-economic class so no comparisons can be drawn. 
+The plot for American English and the findings from @tottie2011 on the general use of fillers are similar. It is also seen that 'uh' is used more than 'um' in both findings. The plot for American English, however, does not provide information on age and socio-economic class so no comparisons can be drawn. 
 
 # Assessment
 
