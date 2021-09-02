@@ -76,7 +76,7 @@ left_join(speaker_num_utterances, speaker_fillers) %>% # join speaker_fillers an
   labs(title = "Switchboard Corpus of American English", 
        subtitle = "Use of fillers 'uh' and 'um'", 
        x = "Sex of speaker", 
-       y = "Number of utterances (per 100)",
+       y = "Number of fillers (per 100 utterances)",
        color = "Filler type")
 ```
 
